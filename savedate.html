@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Una fecha para recordar</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family: Georgia, serif;
+    background:#000;
+}
+
+/* ==========================
+   PORTADA
+========================== */
+
+#portada{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    padding-top:10vh;
+    padding-left:30px;
+    padding-right:30px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.50)
+        ),
+        url('https://lh3.googleusercontent.com/d/1grRnqfhFdWgNUtEaKORhL21qO0Iu2vRJ=s2000');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    color:white;
+    z-index:10;
+}
+
+.contenido{
+    max-width:650px;
+    animation:aparecer 1.8s ease;
+}
+
+.titulo{
+    font-size:clamp(2.4rem, 7vw, 4.5rem);
+    font-weight:300;
+    letter-spacing:4px;
+    line-height:1.3;
+    text-shadow:0 4px 18px rgba(0,0,0,.4);
+    animation:flotar 5s ease-in-out infinite;
+}
+
+.mensaje{
+    font-size:1.15rem;
+    line-height:1.8;
+    max-width:500px;
+    margin:35px auto 0;
+    text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+
+#btnAbrir{
+    margin-top:40px;
+    border:none;
+    border-radius:50px;
+    padding:16px 40px;
+    background:white;
+    color:black;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+#btnAbrir:hover{
+    transform:scale(1.08);
+}
+
+/* ==========================
+   VIDEO
+========================== */
+
+#videoContainer{
+    width:100vw;
+    height:100vh;
+    display:none;
+    background:black;
+}
+
+video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* ==========================
+   MENSAJE FINAL
+========================== */
+
+#mensajeFinal{
+    position:fixed;
+    inset:0;
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:30px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.70),
+            rgba(0,0,0,.70)
+        ),
+        url('https://lh3.googleusercontent.com/d/1grRnqfhFdWgNUtEaKORhL21qO0Iu2vRJ=s2000');
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+}
+
+.finalContenido{
+    max-width:700px;
+    animation:aparecer 1.5s ease;
+}
+
+.finalContenido h2{
+    font-size:clamp(2rem, 6vw, 3rem);
+    margin-bottom:25px;
+}
+
+.finalContenido p{
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+.firma{
+    margin-top:35px;
+    font-style:italic;
+    opacity:.95;
+}
+
+#btnRepetir{
+    margin-top:40px;
+
+    border:none;
+    border-radius:50px;
+
+    padding:16px 40px;
+
+    background:white;
+    color:black;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#btnRepetir:hover{
+    transform:scale(1.08);
+}
+
+/* ==========================
+   ANIMACIONES
+========================== */
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes flotar{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+
+<div id="portada">
+
+    <div class="contenido">
+
+        <h1 class="titulo">
+            ✨<br>
+            Una fecha para recordar
+            <br>✨
+        </h1>
+
+        <p class="mensaje">
+            Pulsa el botón para descubrir una noticia muy especial.
+        </p>
+
+        <button id="btnAbrir">
+            Descubrir
+        </button>
+
+    </div>
+
+</div>
+
+<!-- VIDEO -->
+
+<div id="videoContainer">
+
+    <video
+        id="video"
+        controls
+        playsinline
+        preload="auto">
+
+        <source
+            src="https://res.cloudinary.com/doylsjrnc/video/upload/Save_date_NYS_wcwbbn.mp4"
+            type="video/mp4">
+
+    </video>
+
+</div>
+
+<!-- MENSAJE FINAL -->
+
+<div id="mensajeFinal">
+
+    <div class="finalContenido">
+
+        <h2>
+            ✨ Gracias por ser parte de nuestra historia ✨
+        </h2>
+
+        <p>
+            Este es solo el comienzo.
+        </p>
+
+        <br>
+
+        <p>
+            En los próximos meses recibirás nuestra invitación formal
+            con todos los detalles de esta celebración tan especial.
+        </p>
+
+        <div class="firma">
+            Con cariño,<br><br>
+            Stiven & Nicole
+        </div>
+
+        <button id="btnRepetir">
+            ✨ Volver a verlo
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+const boton = document.getElementById('btnAbrir');
+const portada = document.getElementById('portada');
+const videoContainer = document.getElementById('videoContainer');
+const video = document.getElementById('video');
+const mensajeFinal = document.getElementById('mensajeFinal');
+const btnRepetir = document.getElementById('btnRepetir');
+
+boton.addEventListener('click', async () => {
+
+    portada.style.transition = 'opacity .7s ease';
+    portada.style.opacity = '0';
+
+    setTimeout(() => {
+        portada.style.display = 'none';
+        videoContainer.style.display = 'block';
+    }, 700);
+
+    try{
+        if(document.documentElement.requestFullscreen){
+            await document.documentElement.requestFullscreen();
+        }
+    }catch(e){}
+
+    try{
+        await video.play();
+    }catch(e){}
+});
+
+video.addEventListener('ended', () => {
+
+    videoContainer.style.display = 'none';
+    mensajeFinal.style.display = 'flex';
+
+});
+
+btnRepetir.addEventListener('click', async () => {
+
+    mensajeFinal.style.display = 'none';
+
+    video.currentTime = 0;
+
+    videoContainer.style.display = 'block';
+
+    try{
+        await video.play();
+    }catch(e){}
+});
+</script>
+
+</body>
+</html>
